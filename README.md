@@ -1,2 +1,9 @@
-# ide-config
-run with [gitpod](https://gitpod.io/#https://gitlab.com/dungeon-masters-bnb/rock-scissors-papper-dapp-10wtab)
+**_Rock-Scissors-Paper DApp_**
+
+Try running some of the following tasks:
+
+```shell
+npm run build - Компиляция смарт-контракта
+npm run local-testnet - Запустить локальный блокчейна
+npm run deploy:local - Деплой смарт-контракта в локальный блокчейн
+```
