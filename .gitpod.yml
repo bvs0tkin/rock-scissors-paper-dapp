@@ -5,6 +5,9 @@ vscode:
     - ms-azuretools.vscode-docker
     - ms-python.python
     - juanblanco.solidity
+    - NomicFoundation.hardhat-solidity
+    - esbenp.prettier-vscode
+    - ritwickdey.LiveServer
 
 
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
@@ -16,5 +19,4 @@ tasks:
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 # ports:
-
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
