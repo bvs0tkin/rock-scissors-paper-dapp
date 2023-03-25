@@ -23,7 +23,7 @@ contract RockScissorsPaper {
             "Game: Wrong bid amount. Minimal: 0.0001 BNB (100 000 gwei)"
         );
         require(
-            msg.value <= address(this).balance * 2,
+            msg.value * 2 <= address(this).balance,
             "Smart-contract run out of funds"
         );
         uint256 _smResult = block.timestamp % 3;
@@ -41,4 +41,6 @@ contract RockScissorsPaper {
             return false;
         }
     }
+
+    receive() external payable {}
 }
