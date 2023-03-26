@@ -52,19 +52,29 @@ const Home = () => {
 
    return (
       <div className={styles.home}>
+         <div>Instructions:</div>
+         <div>1. Connect a Wallet</div> 
+         <div>2. Input TBNB quantity</div> 
+         <div>3. Choose a shape by clicking the corresponding button and confirm a transaction in your wallet</div>
+         
          <div>Address: {selectedAddress}</div>
-         <button onClick={() => connectWallet()}>Connect</button>
+         <button class="button button5" onClick={() => connectWallet()}>Connect Wallet</button>
          <section>
-            <span>Game result: {gameResult ? "Win" : "Lose"}</span>
+            <label for="fname">Input TBNB quantity (i.e. 0.001): </label>
             <input
+               id="fname" 
+               name="fname" 
                type="text"
                onChange={(el) => setPlayValue(Number(el.target.value))}
             />
+            <div>Choose your shape: </div>
             <div>
-               <button onClick={() => playGame(0, playValue)}>Rock</button>
-               <button onClick={() => playGame(1, playValue)}>Scissors</button>
-               <button onClick={() => playGame(2, playValue)}>Paper</button>
+               <button class="button button1" onClick={() => playGame(0, playValue)}>Rock</button>
+               <button class="button button2" onClick={() => playGame(1, playValue)}>Scissors</button>
+               <button class="button button3" onClick={() => playGame(2, playValue)}>Paper</button>
             </div>
+            <div><span>Game result: {gameResult ? "Win" : "Lose"}</span></div>
+
          </section>
       </div>
    );
