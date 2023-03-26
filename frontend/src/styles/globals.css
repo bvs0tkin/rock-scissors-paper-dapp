@@ -129,7 +129,7 @@ body {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 16px 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -189,4 +189,20 @@ body {
 .button5:hover {
   background-color: #555555;
   color: white;
+}
+
+h1 { color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 62px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase; }
+
+
+h2 { color: #ffffff; font-family: 'Raleway',sans-serif; font-size: 30px; font-weight: 800; line-height: 36px; margin: 0 0 24px; text-align: center; }
+
+
+p { color: #f8f8f8; font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 12px; text-align: center;}
+
+.wallet { color: #a9ffaf; font-family: 'Raleway',sans-serif; font-size: 18px; font-weight: 500; line-height: 32px; margin: 0 0 12px; }
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
