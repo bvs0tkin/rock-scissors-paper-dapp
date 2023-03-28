@@ -126,7 +126,7 @@ const Home = () => {
                      </li>
                   ))
                ) : (
-                  <li>You haven't played yet</li>
+                  <li>You have not played yet</li>
                )}
             </ul>
          </section>
