@@ -9,6 +9,7 @@ const Home = () => {
    const [smartContract, setSmartContract] = useState<ethers.Contract>();
    const [gameResult, setGameResult] = useState<boolean | null>(null);
    const [playValue, setPlayValue] = useState<number>();
+   const [gameResults, setGameResults] = useState<boolean[]>([]);
 
    const connectWallet = async () => {
       const { ethereum } = window;
@@ -35,6 +36,9 @@ const Home = () => {
    };
 
    const playGame = async (id: number, value: number | undefined) => {
+      if (!value) {
+         alert("Please, write a bid");
+      }
       if (smartContract && value) {
          const playTx = await smartContract.playWithSC(id, {
             value: ethers.utils.parseEther(value.toString()),
@@ -43,7 +47,10 @@ const Home = () => {
          const receipt = await playTx.wait();
          console.log(receipt);
          setGameResult(receipt.events[0].args[1]);
-         // console.log(receipt.events[0].args[1]);
+         setGameResults((prevGames) => [
+            ...prevGames,
+            receipt.events[0].args[1],
+         ]);
       }
    };
 
@@ -63,9 +70,8 @@ const Home = () => {
             transaction in your wallet
          </p>
 
-         <div className="wallet">Connected wallet: {selectedAddress}</div>
          <button className="button button1" onClick={() => connectWallet()}>
-            Connect Wallet
+            {selectedAddress ? selectedAddress : "Connect Wallet"}
          </button>
          <section>
             <p></p>
@@ -105,8 +111,24 @@ const Home = () => {
                </button>
             </div>
             <div>
-               <h2>Game result: {gameResult ? "You won!" : "You lost!"}</h2>
+               {gameResult === null ? (
+                  <h2>Play game!</h2>
+               ) : (
+                  <h2>Game result: {gameResult ? "You won!" : "You lost!"}</h2>
+               )}
             </div>
+            <ul>
+               <h3>Game results:</h3>
+               {gameResults.length > 0 ? (
+                  gameResults.map((item, index) => (
+                     <li key={index}>
+                        {index + 1} game: {item ? "You win" : "You lost"}
+                     </li>
+                  ))
+               ) : (
+                  <li>You haven't played yet</li>
+               )}
+            </ul>
          </section>
       </div>
    );
